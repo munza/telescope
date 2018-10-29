@@ -38,8 +38,8 @@ class QueryWatcher extends Watcher
             'sql' => $event->sql,
             'time' => number_format($time, 2),
             'slow' => isset($this->options['slow']) && $time >= $this->options['slow'],
-            'file' => $caller['file'],
-            'line' => $caller['line'],
+            'file' => $caller['file'] ?? null,
+            'line' => $caller['line'] ?? null,
         ])->tags($this->tags($event)));
     }
 
